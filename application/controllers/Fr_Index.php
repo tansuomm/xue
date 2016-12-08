@@ -11,12 +11,12 @@ class Fr_Index extends CI_Controller {
 		$this->load->view('fore/index');
 	}
 	public function pay(){
-		$this->load->view('fore/index');
+		$this->load->view('fore/pay');
 	}
 	public function order(){
-		$this->load->view('fore/index');
+		$this->load->view('fore/order');
 	}
 	public function info(){
-		$this->load->view('fore/index');
+		$this->load->view('fore/info');
 	}
 }

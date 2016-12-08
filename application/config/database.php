@@ -74,8 +74,8 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'dsn'	=> 'xue.x-chang.com',
+	'hostname' => '127.0.0.1',
 	'username' => 'root',
 	'password' => 'Yohta2016',
 	'database' => 'xue',

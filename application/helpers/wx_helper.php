@@ -33,3 +33,9 @@ function httpCurl($url,$data=null){
 	curl_close($curl);
 	return $output;
 }
+//静默授权获取openid
+function getOpenid(){
+	$codeUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".APPID."&redirect_uri=".site_url()."/fr_Index/know"."&response_type=code&scope=SCOPE&state=STATE#wechat_redirect";
+}
+
+ 

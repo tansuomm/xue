@@ -6,8 +6,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
 	<title>西瓜帮·乐青春</title>
-	<link rel="stylesheet" href="../style/fore/css/weui.css">
-	<link rel="stylesheet" href="../style/fore/css/example.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>/style/fore/css/weui.css">
+	<link rel="stylesheet" href="<?php echo base_url()?>/style/fore/css/example.css">
 </head>
 <body ontouchstart class="bk-color-gray">
 <h1 class="page__title text-center">申请须知</h1>
@@ -33,6 +33,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<h6>联系电话：010-5957 6563</h6>
 	</section>
 </article>
-<a href="javascript:;" class="weui-btn weui-btn_primary">知道了</a>
+<a href="<?php echo site_url().'/fr_Index/know'?>" class="weui-btn weui-btn_primary">知道了</a>
 </body>
 </html>

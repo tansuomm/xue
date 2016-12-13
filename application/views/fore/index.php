@@ -33,6 +33,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<h6>联系电话：010-5957 6563</h6>
 	</section>
 </article>
-<a href="fr_Index/know" class="weui-btn weui-btn_primary">知道了</a>
+<a href="fr_Index/knowPre" class="weui-btn weui-btn_primary">知道了</a>
 </body>
 </html>

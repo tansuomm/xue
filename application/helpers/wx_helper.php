@@ -42,7 +42,7 @@ function getBaseInfo(){
 function getUserOpenId(){
 	$code = $_GET('code');
 	$url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".APPID."&secret=".APPSECRET."&code=".$code."&grant_type=authorization_code";
-	$res = $this->httpCurl($url,'get');
+	$res = $this->httpCurl($url);
 	$openId = $res['openid'];
 	return $openId;
 }

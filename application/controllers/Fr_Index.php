@@ -21,8 +21,8 @@ class Fr_Index extends CI_Controller {
 		}else{
 			$this->load->model('student_model');
 			//授权获取openid;
-			
-			$flag = $this->student->isexist_openid('abc');
+			$openid = getBaseInfo();
+			$flag = $this->student->isexist_openid($openid);
 			if(!$flag){
 				$this->load->view('fore/regesit');
 			}else{

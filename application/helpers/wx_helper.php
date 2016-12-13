@@ -34,8 +34,17 @@ function httpCurl($url,$data=null){
 	return $output;
 }
 //静默授权获取openid
-function getOpenid(){
-	$codeUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".APPID."&redirect_uri=".site_url()."/fr_Index/know"."&response_type=code&scope=SCOPE&state=STATE#wechat_redirect";
+function getBaseInfo(){
+	$redirect_uri = urlencode("xue.x-chuang.com/index.php/fr_Index/know");
+	$codeUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".APPID."&redirect_uri=".$redirect_uri."&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
+	header('location:'.$codeUrl);
+}
+function getUserOpenId(){
+	$code = $_GET('code');
+	$url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".APPID."&secret=".APPSECRET."&code=".$code."&grant_type=authorization_code";
+	$res = $this->httpCurl($url,'get');
+	$openId = $res['openid'];
+	return $openId;
 }
 
  

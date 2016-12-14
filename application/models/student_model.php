@@ -1,6 +1,6 @@
 <?php
 	class Student_model extends CI_Model{
-		private static $table = 'student';
+		private static $table = 'order';
 		private static $column ='id,name,id_num,tel,email,father,father_tel,mother,mother_tel,educate_degree,pic_fore,pic_back,pic_hand,pic_protocol,card_num,marriage,resident,postage,college,profession,time_start,time_end,openid,time_register,pre_one,pre_two,pre_three';
 		function __construct(){
 			parent::__construct();

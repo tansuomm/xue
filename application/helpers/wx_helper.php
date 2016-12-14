@@ -33,18 +33,21 @@ function httpCurl($url,$data=null){
 	curl_close($curl);
 	return $output;
 }
-//静默授权获取openid
-function getBaseInfo(){
-	$redirect_uri = urlencode("xue.x-chuang.com/index.php/fr_Index/know");
-	$codeUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".APPID."&redirect_uri=".$redirect_uri."&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
+//辅助获得openid
+function getCode($re_url){
+	$redirect_uri = urlencode($re_url);
+	$codeUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".APPID."&redirect_uri=".$redirect_uri."&scope=snsapi_base&response_type=code&state=123#wechat_redirect";
 	header('location:'.$codeUrl);
 }
-function getUserOpenId(){
-	$code = $_GET('code');
+//获取openid
+function getOpenId(){
+	$code = $_GET['code'];
 	$url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".APPID."&secret=".APPSECRET."&code=".$code."&grant_type=authorization_code";
-	$res = $this->httpCurl($url);
+	$res =json_decode(httpCurl($url),true);
 	$openId = $res['openid'];
 	return $openId;
 }
+
+
 
  

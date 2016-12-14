@@ -5,7 +5,8 @@ class Fr_Index extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('wx');
-		$this->load->model('student_model','student');
+		$this->load->model('Student_model','student');
+		$this->load->model('Order_model','order');
 	}
 	/**
 	 * 申请控制
@@ -19,29 +20,25 @@ class Fr_Index extends CI_Controller {
 		if(!strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger')){
 			$this->load->view('fore/openerror.html');
 		}else{
-			$redirect_uri = urlencode("http://xue.x-chuang.com/index.php/fr_Index/know");
-			$codeUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".APPID."&redirect_uri=".$redirect_uri."&response_type=code&scope=snsapi_base&state=123#wechat_redirect";
-			header('location:'.$codeUrl);
+			$redirect_uri = "http://testwx.x-chuang.com/index.php/fr_Index/know";
+			getCode($redirect_uri);
 		}
 	}
 	//重定向
 	public function know(){
-		$code = $_GET['code'];
-		$url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".APPID."&secret=".APPSECRET."&code=".$code."&grant_type=authorization_code";
-		$res = json_decode(httpCurl($url),true);
-		$openId = $res['openid'];
-
+		//获取openid
+		$openId = getOpenId();
 		$this->load->model('student_model');
 		$flag = $this->student->isexist_openid($openId);
 		if(!$flag){
 			$this->load->view('fore/regesit');
 		}else{
 			//查询是否存在订单
-			if(true){
-				$this->load->view('fore/order');
-			}else{
-				//
+			$array = $this->order->queryOrderByOpenId($openId);
+			if(empty($array)){
 				$this->load->view('fore/apply');
+			}else{
+				$this->load->view('fore/order');
 			}
 		}				
 	}

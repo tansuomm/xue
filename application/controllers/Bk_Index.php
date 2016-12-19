@@ -4,6 +4,7 @@ class Bk_Index extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('User_model','user');
+		$this->load->model('Order_model','order');
 	}
 	public function index()
 	{	
@@ -16,5 +17,10 @@ class Bk_Index extends CI_Controller {
 		}else{
 			$this->load->view('back/login');
 		}
+	}
+	//订单列表
+	public function order_list(){
+		$orderArr = $this->order->queryAll();
+		$this->load->view('back/order_list',$orderArr);
 	}
 }

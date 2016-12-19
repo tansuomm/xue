@@ -21,4 +21,9 @@
                 return null;
             }
 		}
+		//查询所有订单
+		public function queryAll(){
+			$query = $this->db->get(self::$table);
+			return $query->result_array();
+		}
 	}

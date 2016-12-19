@@ -36,16 +36,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <script>
      BUI.use('common/main',function(){
       var config = [{
-          id:'menu1',
+          id:'order',
           menu:[{
               text:'订单内容',
               items:[
-                {id:'main-menu',text:'顶部导航',href:'###'},
+                {id:'list',text:'订单列表',href:'bk_Index/order_list'},
                 {id:'second-menu',text:'二级菜单',href:'###'}
               ]
             }]
           },{
-          id:'menu2',
+          id:'agent',
           menu:[{
               text:'代理信息',
               items:[
@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               ]
             }]
           },{
-          id:'menu3',
+          id:'pact',
           menu:[{
               text:'合同面板',
               items:[
@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               ]
             }]
           },{
-            id:'menu4',
+            id:'system',
             menu:[{
                 text:'系统管理',
                 items:[
